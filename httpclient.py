@@ -181,6 +181,11 @@ def get_url_proto(full_url):
 
 
 def get_ip(host):
+    """
+        params:
+        - host: address string (not IP)
+        returns: IP address of the host
+    """
     print(f'Getting IP for {host}')
     try:
         ip = socket.gethostbyname(host)
@@ -188,11 +193,16 @@ def get_ip(host):
         print('Hostname could not be resolved in `get_remote_ip(host)`. Exiting.')
         sys.exit()
     else:
-        print(f'{host} IP is {ip}')
+        print(f'{host} IP found to be {ip}')
         return ip
 
 
 def is_binary(data):
+    """
+        params:
+        - data: any string formatted data
+        returns: boolean whether data is binary format (10101010 etc.)
+    """
     data = set(data)
     return data == {'0', '1'} or data == {'1'} or data == {'0'}
 
